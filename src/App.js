@@ -1,8 +1,15 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <h1>Home</h1>
+      <Link to={'/about'}>
+        <h2>About</h2>
+      </Link>
+    </>
+  );
 };
 
 const About = () => {
