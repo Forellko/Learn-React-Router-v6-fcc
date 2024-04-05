@@ -1,6 +1,6 @@
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import { lazy, useEffect, useState } from 'react';
+import { lazy } from 'react';
 
 const SearchGitHubUser = lazy(() => import('./components/SearchGitHubUser'));
 const GitHubUser = lazy(() => import('./components/GitHubUser'));
