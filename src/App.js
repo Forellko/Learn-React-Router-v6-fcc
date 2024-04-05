@@ -54,10 +54,6 @@ const GitHubUser = () => {
   );
 };
 
-const About = () => {
-  return <h1>About</h1>;
-};
-
 const NotFound = () => {
   return <h1>Not Found</h1>;
 };
@@ -70,7 +66,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/number/:num" element={<Number />} />
           <Route path="/user/:username" element={<GitHubUser />} />
-          <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/search" element={<SearchGitHubUser />} />
         </Route>
