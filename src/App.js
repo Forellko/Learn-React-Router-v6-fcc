@@ -3,32 +3,10 @@ import Navbar from './components/Navbar';
 import { lazy, useEffect, useState } from 'react';
 
 const SearchGitHubUser = lazy(() => import('./components/SearchGitHubUser'));
+const GitHubUser = lazy(() => import('./components/GitHubUser'));
 
 const Home = () => {
   return <h1>Home</h1>;
-};
-
-const fetchGitHubUser = async ({ username, setUser }) => {
-  const response = await fetch(`https://api.github.com/users/${username}`);
-  const user = await response.json();
-  console.log(user);
-  setUser(user);
-};
-
-const GitHubUser = () => {
-  const [user, setUser] = useState();
-  const paramUser = useParams();
-
-  useEffect(() => {
-    fetchGitHubUser({ username: paramUser.username, setUser });
-  }, []);
-
-  return (
-    <>
-      <img src={user?.avatar_url} alt="avatar" />
-      <h2>{user?.login}</h2>
-    </>
-  );
 };
 
 const NotFound = () => {
