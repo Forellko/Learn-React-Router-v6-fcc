@@ -1,29 +1,11 @@
-import { Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import { useEffect, useState } from 'react';
+import { lazy, useEffect, useState } from 'react';
+
+const SearchGitHubUser = lazy(() => import('./components/SearchGitHubUser'));
 
 const Home = () => {
   return <h1>Home</h1>;
-};
-
-const SearchGitHubUser = () => {
-  const [search, setSearch] = useState();
-  const navigate = useNavigate();
-
-  const submit = () => {
-    navigate(`/user/${search}`);
-  };
-
-  return (
-    <>
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <input type="button" value="find" onClick={submit} />
-    </>
-  );
 };
 
 const fetchGitHubUser = async ({ username, setUser }) => {
