@@ -6,11 +6,6 @@ const Home = () => {
   return <h1>Home</h1>;
 };
 
-const Number = () => {
-  const number = useParams();
-  return <h1>{number.num}</h1>;
-};
-
 const SearchGitHubUser = () => {
   const [search, setSearch] = useState();
   const navigate = useNavigate();
@@ -64,7 +59,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route path="/" element={<Home />} />
-          <Route path="/number/:num" element={<Number />} />
           <Route path="/user/:username" element={<GitHubUser />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/search" element={<SearchGitHubUser />} />
