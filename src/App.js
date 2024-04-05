@@ -1,4 +1,4 @@
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { useEffect, useState } from 'react';
 
@@ -9,6 +9,26 @@ const Home = () => {
 const Number = () => {
   const number = useParams();
   return <h1>{number.num}</h1>;
+};
+
+const SearchGitHubUser = () => {
+  const [search, setSearch] = useState();
+  const navigate = useNavigate();
+
+  const submit = () => {
+    navigate(`/user/${search}`);
+  };
+
+  return (
+    <>
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <input type="button" value="find" onClick={submit} />
+    </>
+  );
 };
 
 const fetchGitHubUser = async ({ username, setUser }) => {
@@ -52,6 +72,7 @@ function App() {
           <Route path="/user/:username" element={<GitHubUser />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/search" element={<SearchGitHubUser />} />
         </Route>
       </Routes>
     </div>
