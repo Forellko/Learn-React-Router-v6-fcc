@@ -9,6 +9,10 @@ const About = () => {
   return <h1>About</h1>;
 };
 
+const NotFound = () => {
+  return <h1>Not Found</h1>;
+};
+
 function App() {
   return (
     <div>
@@ -16,6 +20,7 @@ function App() {
         <Route path="/" element={<Navbar />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </div>
